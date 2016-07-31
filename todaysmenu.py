@@ -1,7 +1,13 @@
 import requests, bs4
+from datetime import datetime
+
+year = str(datetime.now().year)
+month = str(datetime.now().month).zfill(2)
+day = str(datetime.now().day).zfill(2)
+url = 'http://catedral.prefeitura.unicamp.br/cardapio.php?d=' + year + '-' + month + '-' day
 
 # The variable 'res' will store the page's content
-res = requests.get('http://catedral.prefeitura.unicamp.br/cardapio.php?d=2016-08-01')
+res = requests.get(url)
 
 # Raise exception if http error occurs
 res.raise_for_status()
